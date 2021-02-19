@@ -1,5 +1,3 @@
-set JAVA_HOME=C:\path\to\jdk11
-
 #!/bin/sh
 # ----------------------------------------------------------------------------
 # Licensed to the Apache Software Foundation (ASF) under one
