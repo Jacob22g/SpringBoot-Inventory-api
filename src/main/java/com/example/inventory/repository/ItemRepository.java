@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface ItemRepository extends JpaRepository<Item, Long> {
 
-//    List<Item> WithdrawalQuantity(Long id, Long quantity);
-//    List<Item> DepositQuantity(Long id, Long quantity);
-
+    // find all items with specific inventory code
     List<Item> findByInventoryCode(Long inventoryCode);
 }

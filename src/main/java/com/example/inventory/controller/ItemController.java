@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +14,11 @@ import java.util.Optional;
 @CrossOrigin
 @RequestMapping("/api")
 public class ItemController {
+
+    //
+    //  No input Validation
+    //  Because this is an example homework application
+    //
 
     @Autowired
     ItemRepository itemRepository;
@@ -63,7 +67,6 @@ public class ItemController {
     @PutMapping("/items/{id}")
     public ResponseEntity<Item> updateItemAmount(@PathVariable("id") long id,
                                            @RequestBody Item item
-//                                           Long amount
     ) {
         try {
             Optional<Item> itemData = itemRepository.findById(id);
@@ -72,7 +75,6 @@ public class ItemController {
                 _item.setName(item.getName());
                 _item.setAmount(item.getAmount());
                 _item.setInventoryCode(item.getInventoryCode());
-//                _item.setAmount(amount);
                 return new ResponseEntity<>(itemRepository.save(_item), HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
